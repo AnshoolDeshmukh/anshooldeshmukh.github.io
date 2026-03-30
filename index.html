@@ -904,7 +904,24 @@ footer {
   font-style: italic;
   color: var(--fg3);
 }
-
+  
+.footer-top {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  text-decoration: none;
+  border: 1px solid var(--rule-strong);
+  padding: 0.5rem 1.1rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.footer-top:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+  
 /* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   nav { padding: 1.25rem 1.5rem; }
@@ -2007,6 +2024,7 @@ button:focus-visible {
 </main>
 <footer>
   <p class="footer-l">© 2026 Anshool Deshmukh · Toronto, ON</p>
+  <a href="#top" class="footer-top">Back to top ↑</a>
   <p class="footer-r">"The powerful play goes on, and you may contribute a verse." — Walt Whitman</p>
 </footer>
 
