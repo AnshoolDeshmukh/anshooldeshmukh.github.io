@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gattuscope</title>
+<meta name="description" content="Anshool Deshmukh — Communications Manager and Advisor. Journalism-trained storyteller with 9 years across pharma, nonprofit, healthcare, and financial media."/>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0c0c0b;
+  --bg2: #111110;
+  --fg: #f0ede6;
+  --fg2: #a09d97;
+  --fg3: #8a8880;
+  --blue: #7b9eb8;
+  --blue-dim: #4a6a82;
+  --rule: rgba(240,237,230,0.07);
+  --rule-strong: rgba(240,237,230,0.14);
+  --sans: 'Syne', sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── REVEAL ON SCROLL ── */
+.r {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.js .r {
+  opacity: 0;
+  transform: translateY(22px);
+}
+.js .r.on {
+  opacity: 1;
+  transform: none;
+}
+.r.d1 { transition-delay: 0.1s; }
+.r.d2 { transition-delay: 0.2s; }
+.r.d3 { transition-delay: 0.3s; }
+.r.d4 { transition-delay: 0.4s; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background: rgba(12,12,11,0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-name {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--fg); }
+
+.nav-kit {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--fg);
+  padding: 0.5rem 1.1rem;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-kit:hover {
+  background: var(--blue);
+  color: var(--bg);
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10rem 3rem 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.hero-tag {
+  position: absolute;
+  top: 8rem;
+  right: 3rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  writing-mode: vertical-rl;
+}
+
+.hero-label {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+  opacity: 1;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  margin-bottom: 3rem;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--fg2);
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0;
+  justify-content: center;
+}
+
+.hero-meta-item {
+  font-family: var(--mono);
+  font-size: 15px;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--fg3);
+  padding: 1rem 2rem 1rem 0;
+  border-right: 1px solid var(--rule);
+  margin-right: 2rem;
+  white-space: nowrap;
+}
+
+.hero-meta-item:last-child {
+  border-right: none;
+}
+
+.hero-meta-item a {
+  color: var(--fg3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.hero-meta-item a:hover { color: var(--blue); }
+
+/* ── SECTION WRAPPER ── */
+.sec {
+  padding: 4rem 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sec-head {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.sec-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
+}
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  flex-shrink: 0;
+}
+
+.sec-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── PHILOSOPHY BAND ── */
+.philosophy {
+  padding: 2.5rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.philosophy-left {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  padding-top: 0.5rem;
+}
+
+.philosophy-quote {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+}
+
+.philosophy-by {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--fg3);
+  margin-bottom: 1.5rem;
+}
+
+.philosophy-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+
+/* ── STATS ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-bottom: 1px solid var(--rule);
+}
+
+.stat {
+  padding: 1.75rem 2rem;
+  border-right: 1px solid var(--rule);
+  text-align: left;
+}
+
+.stat:last-child { border-right: none; }
+
+.stat-n {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-style: italic;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--fg);
+}
+
+.stat-l {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg3);
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 6rem;
+}
+
+.about-aside {}
+
+.about-aside-group {
+  margin-bottom: 2.5rem;
+}
+
+.aside-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.aside-val {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg2);
+  line-height: 1.7;
+}
+
+.about-body p {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+
+.about-body p:first-child {
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  color: var(--fg);
+}
+
+/* ── INLINE EXCERPT ── */
+.excerpt {
+  background: var(--bg2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 5rem 3rem;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.excerpt-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  padding-top: 0.4rem;
+  line-height: 1.8;
+}
+
+.excerpt-text {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--fg);
+  margin-bottom: 0.75rem;
+}
+
+.excerpt-source {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--fg3);
+}
+
+/* ── WORK ROWS ── */
+.work-sector {
+  border-bottom: 1px solid var(--rule);
+}
+
+.sector-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--fg);
+  text-align: left;
+  transition: color 0.2s;
+}
+
+.sector-toggle:hover { color: var(--blue); }
+
+.sector-toggle-left {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.sector-toggle-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
+}
+
+.sector-toggle-name {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-style: italic;
+}
+
+.sector-toggle-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--fg3);
+  text-transform: uppercase;
+}
+
+.sector-toggle-arrow {
+  font-size: 1rem;
+  color: var(--fg3);
+  transition: transform 0.3s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.sector-toggle[aria-expanded="true"] .sector-toggle-arrow {
+  transform: rotate(45deg);
+  color: var(--blue);
+}
+
+.sector-body {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+}
+
+.sector-body.open {
+  max-height: 2000px;
+  padding: 0 0 2.5rem;
+}
+
+.sector-desc {
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--fg2);
+  line-height: 1.7;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  padding-left: calc(2rem + 10ch);
+}
+
+.piece-group-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  padding: 0.5rem 0 0.5rem calc(2rem + 10ch);
+  display: block;
+  border-top: 1px solid var(--rule);
+}
+
+.piece-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0 0.8rem calc(2rem + 10ch);
+  border-top: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+
+.piece-row:hover { background: rgba(123,158,184,0.04); }
+
+.piece-row a {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fg2);
+  text-decoration: none;
+  transition: color 0.2s;
+  flex: 1;
+}
+
+.piece-row a:hover { color: var(--blue); }
+
+.piece-row-arrow {
+  font-size: 11px;
+  color: var(--fg3);
+  transition: color 0.2s, transform 0.2s;
+  margin-left: 1rem;
+}
+
+.piece-row:hover .piece-row-arrow {
+  color: var(--blue);
+  transform: translate(2px, -2px);
+}
+
+/* ── CASE STUDIES ── */
+.case {
+  padding: 3.5rem 3rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.case-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.case-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.case-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.case-header-right {
+  text-align: right;
+}
+
+.case-client {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  margin-bottom: 0.5rem;
+}
+
+.case-role {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--fg3);
+  line-height: 1.7;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  margin-bottom: 3rem;
+}
+
+.case-block-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 1rem;
+  display: block;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.case-text {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--fg2);
+  margin-bottom: 1rem;
+}
+
+.case-idea {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  color: var(--fg);
+  line-height: 1.4;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 1.5rem 0;
+}
+
+.case-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.case-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  border: 1px solid var(--rule-strong);
+  padding: 0.4rem 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.case-link:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.case-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.result {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--rule);
+}
+
+.result:last-child { border-right: none; }
+
+.result-n {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-style: italic;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  color: var(--fg);
+}
+
+.result-l {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 300;
+  color: var(--fg3);
+  letter-spacing: 0.08em;
+}
+
+/* ── EXPERIENCE ── */
+.tl-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 4rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tl-row:first-child { border-top: 1px solid var(--rule); }
+
+.tl-period {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--fg3);
+  padding-top: 0.15rem;
+  letter-spacing: 0.06em;
+}
+
+.tl-org {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+  color: var(--fg);
+}
+
+.tl-role {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.75rem;
+}
+
+.tl-desc {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--fg3);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+/* ── MEDIA KIT ── */
+.kit {
+  padding: 4rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.kit-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.kit-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+
+.kit-desc {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--fg3);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 340px;
+}
+
+.kit-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.25rem;
+  text-decoration: none;
+  border: 1px solid var(--rule-strong);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  max-width: 280px;
+}
+
+.kit-btn-primary {
+  color: var(--bg);
+  background: var(--fg);
+  border-color: var(--fg);
+}
+
+.kit-btn-primary:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.kit-btn-secondary {
+  color: var(--fg2);
+}
+
+.kit-btn-secondary:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.kit-embed {
+  border: 1px solid var(--rule);
+  background: #1a1a18;
+}
+
+.kit-embed iframe {
+  width: 100%;
+  height: 580px;
+  border: none;
+  display: block;
+}
+
+/* ── CONTACT ── */
+.contact {
+  padding: 4rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.contact-headline {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--fg);
+  margin-bottom: 1.5rem;
+}
+
+.contact-desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--fg3);
+  line-height: 1.8;
+  max-width: 360px;
+}
+
+.contact-list {
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact-key {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  flex-shrink: 0;
+  margin-right: 2rem;
+}
+
+.contact-val {
+  font-family: var(--sans);
+  font-size: 15px;
+  color: var(--fg2);
+  text-align: right;
+}
+
+.contact-val a {
+  color: var(--fg2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-val a:hover { color: var(--blue); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.footer-l {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--fg3);
+}
+
+.footer-r {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--fg3);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .nav-links { display: none; }
+  .hero, .sec, .kit, .contact { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .philosophy, .excerpt { padding-left: 1.5rem; padding-right: 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+  .case { padding: 3rem 1.5rem; }
+  .hero-name { font-size: clamp(3rem, 12vw, 6rem); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .case-header { grid-template-columns: 1fr; }
+  .case-header-right { text-align: left; }
+  .case-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .case-results { grid-template-columns: repeat(2,1fr); }
+  .result:nth-child(2) { border-right: none; }
+  .result:nth-child(3) { border-top: 1px solid var(--rule); }
+  .tl-row { grid-template-columns: 1fr; gap: 0.5rem; }
+  .stats { grid-template-columns: repeat(3,1fr); }
+  .stat:nth-child(3) { border-right: none; }
+  .kit { grid-template-columns: 1fr; gap: 3rem; }
+  .contact { grid-template-columns: 1fr; gap: 3rem; }
+  footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+  .sector-desc, .piece-group-label, .piece-row { padding-left: 0; }
+  .sector-desc { padding-left: 0; }
+}
+
+/* ── LOGOS BAND ── */
+.logos-band {
+  padding: 2rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.logos-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-right: 3rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.logos-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  flex: 1;
+}
+.logo-mark {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  padding: 0.75rem 2.5rem;
+  border-right: 1px solid var(--rule);
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+.logo-mark:first-child { border-left: 1px solid var(--rule); }
+.logo-mark:hover { color: var(--blue); }
+
+/* ── LONGFORM CASE STUDY ── */
+.case-lf {
+  border-top: 1px solid var(--rule-strong);
+}
+.case-lf-hero {
+  padding: 4rem 3rem 3rem;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: end;
+}
+.case-lf-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  display: block;
+}
+.case-lf-title {
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--fg);
+}
+.case-lf-meta {
+  text-align: right;
+}
+.case-lf-client {
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  margin-bottom: 0.5rem;
+}
+.case-lf-role {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--fg3);
+  line-height: 1.8;
+}
+.case-lf-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+}
+.case-lf-sidebar {
+  padding: 4rem 0 4rem 3rem;
+  border-right: 1px solid var(--rule);
+  position: sticky;
+  top: 5rem;
+  height: fit-content;
+}
+.case-lf-sidebar-item {
+  margin-bottom: 2.5rem;
+}
+.case-lf-sidebar-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.case-lf-sidebar-val {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--fg2);
+  line-height: 1.6;
+}
+.case-lf-content {
+  padding: 3rem 3rem 3rem 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.case-lf-section {
+  margin-bottom: 4rem;
+}
+.case-lf-section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 1.25rem;
+  display: block;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+.case-lf-p {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--fg2);
+  margin-bottom: 1.25rem;
+}
+.case-lf-idea {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--fg);
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 2rem 0;
+}
+.case-lf-execution {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  margin: 1.5rem 0;
+}
+.case-lf-execution-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 1rem;
+  display: block;
+}
+.case-lf-execution p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--fg2);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.case-lf-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.case-lf-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  border: 1px solid var(--rule-strong);
+  padding: 0.45rem 1rem;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.case-lf-link:hover { border-color: var(--blue); color: var(--blue); }
+.case-lf-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--rule);
+}
+.case-lf-result {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--rule);
+}
+.case-lf-result:last-child { border-right: none; }
+.case-lf-result-n {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-style: italic;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  color: var(--fg);
+}
+.case-lf-result-l {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--fg3);
+  letter-spacing: 0.08em;
+}
+@media (max-width: 960px) {
+  .case-lf-hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .case-lf-meta { text-align: left; }
+  .case-lf-body { grid-template-columns: 1fr; }
+  .case-lf-sidebar { position: static; padding: 2rem 1.5rem; border-right: none; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 1.5rem; }
+  .case-lf-sidebar-item { margin-bottom: 0; min-width: 140px; }
+  .case-lf-content { padding: 2.5rem 1.5rem; }
+  .case-lf-results { grid-template-columns: repeat(2,1fr); }
+  .case-lf-result:nth-child(2) { border-right: none; }
+  .case-lf-result:nth-child(3) { border-top: 1px solid var(--rule); }
+  .logos-band { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .logos-list { gap: 0; }
+  .logo-mark { padding: 0.6rem 1.5rem; font-size: 10px; }
+}
+
+
+/* ── LOGO TOOLTIPS ── */
+.logo-mark {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+}
+.logo-mark[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.4rem 0.75rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.logo-mark[data-tip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* ── HERO REVEAL ── */
+.hero-name-reveal {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+@keyframes heroSlideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── HERO LABEL FADE ── */
+.hero-label {
+  opacity: 1;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── MARQUEE LOGOS ── */
+.logos-marquee-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+.logos-marquee-wrap::before,
+.logos-marquee-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logos-marquee-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+.logos-marquee-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
+}
+.logos-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+.logos-marquee:hover { animation-play-state: paused; }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── CASE TITLE HOVER ── */
+.case-lf-title {
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.case-lf:hover .case-lf-title {
+  color: var(--fg);
+  transform: translateX(6px);
+}
+
+/* ── STAT STAGGER ── */
+.stat:nth-child(1) { transition-delay: 0s; }
+.stat:nth-child(2) { transition-delay: 0.12s; }
+.stat:nth-child(3) { transition-delay: 0.24s; }
+.stat:nth-child(4) { transition-delay: 0.36s; }
+.stat:nth-child(5) { transition-delay: 0.48s; }
+
+/* ── SMOOTH SCROLL CURSOR ── */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* ── PIECE ROW SLIDE ── */
+.piece-row {
+  transition: background 0.15s, padding-left 0.2s ease;
+}
+.piece-row:hover {
+  padding-left: 0.5rem;
+}
+
+/* ── SECTION NUMBER PULSE ── */
+.sec-num {
+  transition: letter-spacing 0.3s ease;
+}
+.sec:hover .sec-num {
+  letter-spacing: 0.2em;
+}
+
+/* ── RESULT NUMBER HOVER ── */
+.case-lf-result {
+  transition: background 0.2s;
+}
+.case-lf-result:hover {
+  background: rgba(123,158,184,0.06);
+}
+.case-lf-result-n {
+  transition: color 0.2s;
+}
+.case-lf-result:hover .case-lf-result-n {
+  color: var(--blue);
+}
+
+
+/* ── SKIP NAV (WCAG 2.2) ── */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1.5rem;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top 0.2s;
+}
+.skip-nav:focus {
+  top: 1rem;
+}
+
+
+/* ── FOCUS STYLES (WCAG 2.2) ── */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+
+/* ── REDUCED MOTION (WCAG 2.2) ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .logos-marquee {
+    animation: none;
+  }
+  .hero-name-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-label {
+    animation: none;
+    opacity: 1;
+  }
+  .r {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+/* ── TOUCH TARGETS (WCAG 2.2 — min 24px) ── */
+.piece-row a,
+.case-lf-link,
+.case-link,
+.nav-links a {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+.sector-toggle {
+  min-height: 44px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<a href="#main-content" class="skip-nav">Skip to main content</a>
+<nav>
+  <a href="#top" class="nav-name">Anshool Deshmukh</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#mediakit">Media Kit</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#mediakit" class="nav-kit">Media Kit ↓</a>
+</nav>
+
+<!-- HERO -->
+<main id="main-content"><section class="hero" id="top">
+  <div class="hero-tag">Toronto, ON</div>
+  <div class="hero-label r" style="opacity:1;">Communications Manager &amp; Advisor · Journalism-trained Storyteller</div>
+  <h1 class="hero-name hero-name-reveal">Anshool<br><em style="color:var(--blue);">Deshmukh</em></h1>
+  <div class="hero-meta r d2">
+    <div class="hero-meta-item"><a href="mailto:anshool7deshmukh&#64;gmail.com">anshool7deshmukh&#64;gmail.com</a></div>
+    <div class="hero-meta-item">+1 (647) 655-0747</div>
+    <div class="hero-meta-item"><a href="https://www.linkedin.com/in/anshooldeshmukh" target="_blank">LinkedIn ↗</a></div>
+    <div class="hero-meta-item">Toronto, ON</div>
+    <div class="hero-meta-item"><a href="#mediakit">Media Kit ↓</a></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<div class="philosophy r">
+  <div class="philosophy-left">Philosophy</div>
+  <div>
+    <p class="philosophy-quote">"That the powerful play goes on, and you may contribute a verse."</p>
+    <p class="philosophy-by">— Walt Whitman</p>
+    <p class="philosophy-sub">Now years in, the verse is still being written, and it's damn well worth reading.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat r"><span class="stat-n" data-count="5" data-suffix="">5</span><span class="stat-l">Sectors</span></div>
+  <div class="stat r d1"><span class="stat-n" data-count="30" data-suffix="M+">30M+</span><span class="stat-l">Campaign Views</span></div>
+  <div class="stat r d2"><span class="stat-n" data-count="83" data-suffix="K">83K</span><span class="stat-l">Employees Reached</span></div>
+  <div class="stat r d3"><span class="stat-n" data-count="2.3" data-suffix="M">2.3M</span><span class="stat-l">ESG Report Viewers</span></div>
+  <div class="stat r d4"><span class="stat-n" data-count="550" data-suffix="K">550K</span><span class="stat-l">Avg. Global Readership</span></div>
+</div>
+
+
+<!-- LOGOS BAND -->
+<div class="logos-band r">
+  <span class="logos-label">Selected Work With</span>
+  <div class="logos-marquee-wrap">
+    <div class="logos-marquee" id="logoMarquee">
+      <a href="#experience" class="logo-mark" data-tip="Strategic Communications Lead">Sanofi</a>
+      <a href="#cases" class="logo-mark" data-tip="Copywriter · Creative Lead · Campaign Lead">BGC Canada</a>
+      <a href="#work" class="logo-mark" data-tip="Data Journalist · Editorial Producer">Visual Capitalist</a>
+      <a href="#cases" class="logo-mark" data-tip="Copywriter · National Portfolio">Mattamy Homes</a>
+      <a href="#work" class="logo-mark" data-tip="Healthcare Content Strategist">CareFoundry</a>
+      <a href="#work" class="logo-mark" data-tip="Financial Copywriter">Sidepart</a>
+      <a href="#experience" class="logo-mark" aria-hidden="true">Sanofi</a>
+      <a href="#cases" class="logo-mark" aria-hidden="true">BGC Canada</a>
+      <a href="#work" class="logo-mark" aria-hidden="true">Visual Capitalist</a>
+      <a href="#cases" class="logo-mark" aria-hidden="true">Mattamy Homes</a>
+      <a href="#work" class="logo-mark" aria-hidden="true">CareFoundry</a>
+      <a href="#work" class="logo-mark" aria-hidden="true">Sidepart</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <span class="sec-label">About</span>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-aside r">
+      <div class="about-aside-group">
+        <span class="aside-label">Education</span>
+        <p class="aside-val">M.A. Journalism<br>Grady College of Journalism &amp; Mass Communication</p>
+      </div>
+      <div class="about-aside-group">
+        <span class="aside-label">Education</span>
+        <p class="aside-val">B.E. Computer Engineering<br>Bharati Vidyapeeth College of Engineering</p>
+      </div>
+      <div class="about-aside-group">
+        <span class="aside-label">Sectors</span>
+        <p class="aside-val">Pharma · Nonprofit · Healthcare<br>Fintech · Real Estate · Data Journalism</p>
+      </div>
+      <div class="about-aside-group">
+        <span class="aside-label">Expertise</span>
+        <p class="aside-val">Strategic Communications<br>Editorial Governance · Plain Language<br>Change Communications<br>Campaign Strategy · Data Journalism</p>
+      </div>
+    </div>
+    <div class="about-body r d1">
+      <p>Anshool Deshmukh is a Toronto-based communications professional with 9 years of experience turning complex ideas into content that actually connects. With a Master's in Journalism from the Grady College of Journalism and Mass Communication and a foundation in computer science, he sits comfortably at the intersection of storytelling, strategy, and technology.</p>
+      <p>Over the years, Anshool has led communications for some of Canada's most recognized organizations, from global pharmaceutical giants like Sanofi to mission-driven nonprofits like BGC Canada, with stops in healthcare, real estate, and financial content along the way. His work spans internal communications, brand strategy, editorial governance, digital content, and everything in between. If it needs to be written, structured, or made to land with an audience, he's the person in the room.</p>
+      <p>He's also a firm believer that good communication isn't just about what you say. It's about who you're saying it to, why it matters to them, and whether it moves them to do something about it.</p>
+      <p>When he's not crafting communication strategies or obsessing over a well-placed comma, you'll find him hunting down Toronto's best new restaurants and breweries, curating the perfect playlist nobody asked for, or stopping to pet every dog he passes. A confessed crime thriller addict, former co-host of a space exploration podcast, currently building a healthcare education podcast, and somewhere in between all of that, writing his first novel, because apparently, one form of storytelling was never going to be enough.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- WORK -->
+<section class="sec" id="work" style="padding-top:3rem;">
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <span class="sec-label">Work — All Sectors</span>
+    <div class="sec-rule"></div>
+  </div>
+
+  <div class="work-sector r">
+    <button class="sector-toggle" aria-expanded="false" onclick="toggleSector(this)">
+      <div class="sector-toggle-left">
+        <span class="sector-toggle-num">01</span>
+        <span class="sector-toggle-name">Business &amp; Finance</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <span class="sector-toggle-meta">Data Journalism · Plain Language Finance</span>
+        <span class="sector-toggle-arrow">+</span>
+      </div>
+    </button>
+    <div class="sector-body">
+      <p class="sector-desc">Raw GDP data, labour market reports, credit card trends, and market intelligence turned into stories professional and everyday audiences actually wanted to read.</p>
+      <div class="excerpt r" style="margin:0 0 1.5rem 0;">
+        <div class="excerpt-label">Plain Language Finance<br>Sidepart</div>
+        <div>
+          <p class="excerpt-text">"Translated one of Canada's most misunderstood financial products into a plain-language editorial that named the real cost, 468% annually, not 18%, without lecturing the reader who needed it most."</p>
+          <p class="excerpt-source">Fintech &amp; Mortgage Content · Compliance-Driven Products · Everyday Canadian Audiences</p>
+        </div>
+      </div>
+      <span class="piece-group-label">Visual Capitalist — Data Journalism</span>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/biggest-tech-talent-hubs-in-us-and-canada" target="_blank">The Biggest Tech Talent Hubs in the U.S. and Canada</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/global-gdp-by-region-distribution-map" target="_blank">Mapped: Global GDP by Region</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/visualizing-the-biggest-gaming-company-acquisitions-of-all-time/" target="_blank">Visualizing the Biggest Gaming Company Acquisitions of All Time</a><span class="piece-row-arrow">↗</span></div>
+      <span class="piece-group-label">Sidepart — Fintech &amp; Mortgage Content</span>
+      <div class="piece-row"><a href="#" target="_blank">Ripping the Payday Loan Band-Aid Off</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="#" target="_blank">Good vs Bad Debt — The Lowdown</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="#" target="_blank">Carrying Balances in 2020 — The Credit Card Conversation</a><span class="piece-row-arrow">↗</span></div>
+    </div>
+  </div>
+
+  <div class="work-sector r">
+    <button class="sector-toggle" aria-expanded="false" onclick="toggleSector(this)">
+      <div class="sector-toggle-left">
+        <span class="sector-toggle-num">02</span>
+        <span class="sector-toggle-name">Editorial Governance &amp; Long-Form</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <span class="sector-toggle-meta">Reports · Enterprise Comms</span>
+        <span class="sector-toggle-arrow">+</span>
+      </div>
+    </button>
+    <div class="sector-body">
+      <p class="sector-desc">Not all editorial work announces itself. Some of it lives in the structure of a document, the consistency of a voice across 250 pages, the decision to cut a paragraph that undermines the argument three sections later.</p>
+      <span class="piece-group-label">BGC Canada / TELUS Friendly Future Foundation</span>
+      <div class="piece-row"><a href="#" target="_blank">250-Page Bilingual Mental Health Report (Available on request)</a><span class="piece-row-arrow">→</span></div>
+      <span class="piece-group-label">Visual Capitalist</span>
+      <div class="piece-row"><a href="https://drive.google.com/file/d/158XD-EbQ54aBAqusJ002kdyoPiIfl-Jv/view?usp=sharing" target="_blank">60-Page Decarbonization &amp; ESG Report — 30 Largest US Utilities</a><span class="piece-row-arrow">↗</span></div>
+      <span class="piece-group-label">Sanofi Canada</span>
+      <div class="piece-row"><a href="#" target="_blank">Enterprise Change Communications — 83,000 Employees (Available on request)</a><span class="piece-row-arrow">→</span></div>
+    </div>
+  </div>
+
+  <div class="work-sector r">
+    <button class="sector-toggle" aria-expanded="false" onclick="toggleSector(this)">
+      <div class="sector-toggle-left">
+        <span class="sector-toggle-num">03</span>
+        <span class="sector-toggle-name">Healthcare &amp; Plain Language</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <span class="sector-toggle-meta">Regulated Content · Podcast Scripts</span>
+        <span class="sector-toggle-arrow">+</span>
+      </div>
+    </button>
+    <div class="sector-body">
+      <p class="sector-desc">Healthcare content has no margin for error and no room for jargon. Every piece produced for clinical or regulated environments where accuracy, accessibility, and compliance were non-negotiable.</p>
+      <span class="piece-group-label">CareFoundry Healthworks</span>
+      <div class="piece-row"><a href="https://www.carefoundryhealthworks.com/" target="_blank">Full Website — Editorial Content &amp; Architecture</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.carefoundryhealthworks.com/our-services/knowledge-hub-for-medical-innovations" target="_blank">Knowledge Hub for Medical Innovations</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.carefoundryhealthworks.com/post/innovative-outlook-to-negative-pressure-wound-therapy-a-cost-effective-solution-for-broader-availab" target="_blank">Increasing Affordability of NPWT Solution</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="#" target="_blank">Medical Education Podcast — Editorial Framework (Available on request)</a><span class="piece-row-arrow">→</span></div>
+    </div>
+  </div>
+
+  <div class="work-sector r">
+    <button class="sector-toggle" aria-expanded="false" onclick="toggleSector(this)">
+      <div class="sector-toggle-left">
+        <span class="sector-toggle-num">04</span>
+        <span class="sector-toggle-name">Articles &amp; Thought Leadership</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:2rem;">
+        <span class="sector-toggle-meta">Science · Policy · Advocacy · Real Estate</span>
+        <span class="sector-toggle-arrow">+</span>
+      </div>
+    </button>
+    <div class="sector-body">
+      <p class="sector-desc">A cross-section of editorial work spanning science, technology, public policy, and advocacy. Same plain-language standard throughout. Range across subject matter.</p>
+      <span class="piece-group-label">Visual Capitalist — Science &amp; Technology</span>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/worlds-biggest-pharmaceutical-companies/" target="_blank">Visualizing the World's Biggest Pharmaceutical Companies</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/a-visual-introduction-to-the-dwarf-planets-in-our-solar-system/" target="_blank">A Visual Introduction to the Dwarf Planets (Interactive)</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/sp/synthetic-materials-that-will-shape-the-future" target="_blank">Synthetic Materials That Will Shape the Future</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.visualcapitalist.com/company_spotlight/hydrograph/?utm_source=VC-newsletter&utm_medium=Branded-Content&utm_campaign=VC-Hydrograph" target="_blank">Hydrograph: Graphene Powered Clean Energy Campaign</a><span class="piece-row-arrow">↗</span></div>
+      <span class="piece-group-label">BGC Canada — Advocacy &amp; Public Policy</span>
+      <div class="piece-row"><a href="https://www.bgccan.com/en/pre-budget-submission-in-advance-of-the-2024-federal-budget/" target="_blank">Pre-Budget Submission — 2024 Federal Budget</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.bgccan.com/en/hidden-poverty/" target="_blank">BGC CEO Blog — Hidden Poverty in Kids</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.bgccan.com/wp-content/uploads/2024/05/BGC_AnnualReport2023-EN-final.pdf" target="_blank">BGC Canada Annual Report 2023</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.bgccan.com/en/youth-of-the-year/" target="_blank">Youth of the Year Initiative</a><span class="piece-row-arrow">↗</span></div>
+      <span class="piece-group-label">Mattamy Homes — Real Estate &amp; Marketing</span>
+      <div class="piece-row"><a href="https://mattamyhomes.com/" target="_blank">Corporate Website — Mattamy Homes</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://mattamyhomes.com/ontario/ottawa/barrhaven/promenade" target="_blank">Community Page — Promenade, Barrhaven</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://mattamyhomes.com/alberta/calgary/calgary-design-studio" target="_blank">Design Studio — Calgary</a><span class="piece-row-arrow">↗</span></div>
+      <div class="piece-row"><a href="https://www.instagram.com/p/CqTS-NBrduM/?img_index=1" target="_blank">Social Post — East Preserve, Oakville</a><span class="piece-row-arrow">↗</span></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="sec" style="border-bottom:none;padding-top:2rem;padding-bottom:2rem;">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <span class="sec-label">Case Studies — Campaigns &amp; National Storytelling</span>
+      <div class="sec-rule"></div>
+    </div>
+    <p style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--fg3);max-width:580px;">The work that moves people is the work that trusts them. Three case studies. Three different clients. The same editorial standard throughout.</p>
+  </div>
+
+  <!-- CASE 01 -->
+  <div class="case-lf r">
+    <div class="case-lf-hero">
+      <div>
+        <span class="case-lf-num">Case Study 01</span>
+        <h2 class="case-lf-title">Unshareable<br>Stories</h2>
+      </div>
+      <div class="case-lf-meta">
+        <p class="case-lf-client">BGC Canada</p>
+        <p class="case-lf-role">Copywriter · Creative Lead<br>Broadcast Script Writer<br>TVC · Social · OOH · Campaign Hub<br>Alumni Narratives</p>
+      </div>
+    </div>
+    <div class="excerpt r" style="margin:0;border-top:none;">
+      <div class="excerpt-label">The Line<br>BGC Canada</div>
+      <div>
+        <p class="excerpt-text">"Kids shouldn't have unshareable stories. Simple. The weight comes from what it doesn't say. It doesn't lecture. It doesn't list statistics. It trusts the audience to feel the gap."</p>
+        <p class="excerpt-source">TVC · Social · OOH · Thought Leadership · 30M+ Views</p>
+      </div>
+    </div>
+    <div class="case-lf-body">
+      <div class="case-lf-sidebar">
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Client</span>
+          <p class="case-lf-sidebar-val">BGC Canada</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Role</span>
+          <p class="case-lf-sidebar-val">Copywriter<br>Creative Lead<br>Broadcast Script Writer</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Deliverables</span>
+          <p class="case-lf-sidebar-val">TVC Scripts<br>Broadcast Direction<br>Social Copy<br>OOH Messaging<br>Campaign Hub<br>Alumni Narratives</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Links</span>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.25rem;">
+            <a href="https://www.bgccan.com/en/unshareablestories/" target="_blank" class="case-lf-link">Campaign Hub ↗</a>
+            <a href="https://vimeo.com/817648020?fl=pl&fe=sh" target="_blank" class="case-lf-link">Bullying TVC ↗</a>
+            <a href="https://vimeo.com/820937269" target="_blank" class="case-lf-link">Hunger TVC ↗</a>
+            <a href="https://docs.google.com/document/d/13LqaJ0dwVfAkmJ0Dx56NLG2RnVTfFdvk50-SJArKyRs/edit?usp=sharing" target="_blank" class="case-lf-link">Full Script ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="case-lf-content">
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Brief</span>
+          <p class="case-lf-p">BGC Canada needed Canadians to feel the cost of growing up without support. Not through statistics. Not through charity speak. Through the specific, quiet moments that kids carry alone because there's nowhere safe to share them.</p>
+          <p class="case-lf-p">The brief landed with a deceptively simple ask: make people feel something. The harder question was how to earn that feeling without manufacturing it.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Idea</span>
+          <p class="case-lf-idea">"Kids shouldn't have unshareable stories."</p>
+          <p class="case-lf-p">Simple. The weight comes from what it doesn't say. It doesn't lecture. It doesn't list statistics. It trusts the audience to feel the gap between what a childhood should look like and what too many kids actually experience.</p>
+          <p class="case-lf-p">The line needed to work across every issue BGC touches — bullying, hunger, poverty, gender identity, immigration. It does, because the structure never changes. Only the story does.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Execution</span>
+          <p class="case-lf-p">Wrote and shaped the alumni narratives featured on the campaign hub. Damion, Daniela, Kowmitha, Teresa. Each story translated a real person's experience into copy that was emotionally honest without being exploitative, holding the same standard of dignity the campaign demanded throughout.</p>
+          <div class="case-lf-execution">
+            <span class="case-lf-execution-label">Bullying TVC — Direction Note</span>
+            <p>Raw, observational, documentary-style. The cruelty is casual, not cartoonish. The sound of the book hitting the ground acts as the dialogue of the scene. It needs to cut through the ambience. That casual quality makes it more impactful than anything an actor could say.</p>
+          </div>
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Hunger TVC — Direction Note</span>
+            <p>Natural, intimate, documentary-inspired. The locker POV creates immediate claustrophobia and privacy. We're inside his secret with him. The dialogue does the work. Nobody believes him. He knows it.</p>
+          </div>
+          <p class="case-lf-p" style="margin-top:1.5rem;">The social campaign introduced real kids by name, told their story in one breath, and landed on the same line every time. No call to action. No elaborate hashtag strategy. Just the story and the line. The restraint is the craft.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">Why It Worked</span>
+          <p class="case-lf-p">The brief could have produced a campaign that made people feel guilty. It didn't. It made them feel something more useful: recognition. Every adult has been one of these kids, or knows one.</p>
+          <p class="case-lf-p">The copy never told audiences what to think. It put them inside a specific moment, with a specific child, and trusted them to arrive at the feeling themselves. That's the difference between advertising that runs and advertising that stays with people.</p>
+        </div>
+        <div class="case-lf-results r">
+          <div class="case-lf-result"><span class="case-lf-result-n">30M+</span><span class="case-lf-result-l">Views across channels</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">35%</span><span class="case-lf-result-l">YoY website traffic growth</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">94%</span><span class="case-lf-result-l">Club satisfaction rate</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">69%</span><span class="case-lf-result-l">Alumni say Club saved their life</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 02 -->
+  <div class="case-lf r">
+    <div class="case-lf-hero">
+      <div>
+        <span class="case-lf-num">Case Study 02</span>
+        <h2 class="case-lf-title">Make Them<br><em>Feel It First</em></h2>
+      </div>
+      <div class="case-lf-meta">
+        <p class="case-lf-client">Mattamy Homes · The Turn Lab</p>
+        <p class="case-lf-role">Copywriter<br>Website · Community Pages<br>Design Studio · Social<br>Sales Collateral</p>
+      </div>
+    </div>
+    <div class="case-lf-body">
+      <div class="case-lf-sidebar">
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Client</span>
+          <p class="case-lf-sidebar-val">Mattamy Homes<br>(via The Turn Lab)</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Role</span>
+          <p class="case-lf-sidebar-val">Copywriter</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Deliverables</span>
+          <p class="case-lf-sidebar-val">Corporate Website<br>Community Pages<br>Design Studio<br>Social Campaigns<br>Sales Collateral</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Links</span>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.25rem;">
+            <a href="https://mattamyhomes.com/" target="_blank" class="case-lf-link">Corporate Site ↗</a>
+            <a href="https://mattamyhomes.com/ontario/ottawa/barrhaven/promenade" target="_blank" class="case-lf-link">Community Page ↗</a>
+            <a href="https://mattamyhomes.com/alberta/calgary/calgary-design-studio" target="_blank" class="case-lf-link">Design Studio ↗</a>
+            <a href="https://www.instagram.com/p/CqTS-NBrduM/?img_index=1" target="_blank" class="case-lf-link">Social Post ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="case-lf-content">
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Brief</span>
+          <p class="case-lf-p">Mattamy Homes is one of Canada's largest homebuilders, operating across communities from Ontario to Alberta. The brief was deceptively simple: write the website, the community pages, and the social campaigns.</p>
+          <p class="case-lf-p">The real challenge was harder. A home is the biggest purchase most people ever make. The copy couldn't just describe square footage and highway access. It had to make someone feel like they already belonged there before they ever set foot inside.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Idea</span>
+          <p class="case-lf-idea">"Not a builder's voice. A buyer's voice."</p>
+          <p class="case-lf-p">Every word had to work across buyer types, price points, and communities with completely different characters, while sounding like it came from one voice. Make people feel something before they ever walk through a door.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Execution</span>
+          <p class="case-lf-p">The homepage needed to answer one question immediately: why Mattamy? The answer wasn't product features. It was philosophy. That opening repositions Mattamy from builder to partner. Everything else on the site flows from that promise.</p>
+          <div class="case-lf-execution">
+            <span class="case-lf-execution-label">Community Page — Hawthorne East Village</span>
+            <p>"Celebrate each day in Mattamy's Hawthorne East Village, with its picturesque homes and everything your active family needs to grow and thrive. By the end, the reader isn't buying a house. They're buying a version of their life."</p>
+          </div>
+          <p class="case-lf-p" style="margin-top:1.5rem;">The Design Studio page solved a specific problem: personalization is exciting in theory and paralyzing in practice. The copy had to make hundreds of decisions feel like a privilege, not a burden. One page. Two buyer types. Neither one left without a next step.</p>
+          <p class="case-lf-p">This approach was applied across Mattamy's entire Canadian portfolio. Every community has its own narrative. One brand voice throughout.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">Why It Worked</span>
+          <p class="case-lf-p">Real estate copy fails when it describes. It succeeds when it imagines. The brief required writing that could make someone picture Sunday morning coffee on a back porch in a community that didn't exist yet.</p>
+          <p class="case-lf-p">The copy that performed best was the copy that trusted the reader, gave them just enough to see themselves there, and let their imagination do the rest.</p>
+        </div>
+              <div class="excerpt r" style="margin:2rem 0;">
+                <div class="excerpt-label">The Line<br>Mattamy Homes</div>
+                <div>
+                  <p class="excerpt-text">"By the end, the reader isn't buying a house. They're buying a version of their life."</p>
+                  <p class="excerpt-source">National Portfolio · 300+ Assets · $4.45B Company Milestone</p>
+                </div>
+              </div>
+        <div class="case-lf-results r">
+          <div class="case-lf-result"><span class="case-lf-result-n">300+</span><span class="case-lf-result-l">Assets produced nationally</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">21.4%</span><span class="case-lf-result-l">YoY revenue growth</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">$4.45B</span><span class="case-lf-result-l">Company milestone</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">&#x2714;</span><span class="case-lf-result-l">Full corporate visual rebrand &amp; launch</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 03 -->
+  <div class="case-lf r">
+    <div class="case-lf-hero">
+      <div>
+        <span class="case-lf-num">Case Study 03</span>
+        <h2 class="case-lf-title">BGC<br><em>Club Day</em></h2>
+      </div>
+      <div class="case-lf-meta">
+        <p class="case-lf-client">BGC Canada</p>
+        <p class="case-lf-role">Copywriter · Campaign Lead<br>Event Copy · Social · Press<br>Partner Coordination</p>
+      </div>
+    </div>
+    <div class="case-lf-body">
+      <div class="case-lf-sidebar">
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Client</span>
+          <p class="case-lf-sidebar-val">BGC Canada</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Role</span>
+          <p class="case-lf-sidebar-val">Copywriter<br>Campaign Lead</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Deliverables</span>
+          <p class="case-lf-sidebar-val">Event Copy<br>Campaign Messaging<br>Social Content<br>Press &amp; Media<br>Partner Coordination</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Links</span>
+          <div style="display:flex;flex-direction:column;gap:0.4rem;margin-top:0.25rem;">
+            <a href="https://www.bgccan.com/en/join-bgc-canada-on-june-3-for-the-first-ever-bgc-club-day/" target="_blank" class="case-lf-link">Media Release ↗</a>
+            <a href="https://www.bgccan.com/wp-content/uploads/2024/05/BGC_AnnualReport2023-EN-final.pdf" target="_blank" class="case-lf-link">Annual Report ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="case-lf-content">
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Brief</span>
+          <p class="case-lf-p">BGC Canada wanted to create a national day of celebration for its 600+ Clubs and the kids, families, and communities they serve. A feel-good charity day wasn't enough. It needed to feel like an event people genuinely wanted to be part of, not just something they were asked to support.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Idea</span>
+          <p class="case-lf-idea">"Turn a national nonprofit into a national celebration."</p>
+          <p class="case-lf-p">Bring in partners with genuine cultural reach. Light up the country in BGC green. Give people a reason to show up, share, and pay attention. Make BGC impossible to ignore for one day.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Execution</span>
+          <p class="case-lf-p">Wrote all event copy and campaign messaging across digital, social, and partner communications, from the initial awareness push through to event day content, maintaining a voice that was warm, energetic, and community-first throughout.</p>
+          <div class="case-lf-execution">
+            <span class="case-lf-execution-label">Social Formula — The Club Day Story</span>
+            <p>"Having dedicated over 7 years to @bgc_es, Shintelle's Club journey has been inspiring. From After School Program Lead to Youth Program Coordinator to Social Media Specialist, she's impacted countless young lives. Join us on June 2 to celebrate #BGCClubDay."</p>
+          </div>
+          <p class="case-lf-p" style="margin-top:1.5rem;">The formula was consistent: a real person, a real journey, the same invitation. Personal enough to stop the scroll. Specific enough to be believed.</p>
+          <p class="case-lf-p">Walk Off the Earth performed live on BGC's Facebook. CityTV and CBC Evening News covered Jully Black's visit to BGC East Scarborough. 41 civic activations across Canada, including 5 municipal proclamations, BGC flags raised at 11 City Halls, and 25 landmarks lit in BGC green — the CN Tower, Niagara Falls, the Montreal Olympic Stadium.</p>
+        </div>
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">Why It Worked</span>
+          <p class="case-lf-p">The brief asked for awareness. The campaign delivered credibility. Earned media, organic celebrity amplification, civic buy-in from 11 city halls, and a country turned green aren't things you buy. They're things you earn when the creative and the cause are strong enough that people want to be associated with them.</p>
+          <p class="case-lf-p">Club Day proved BGC wasn't just a charity. It was a cultural institution worth celebrating.</p>
+        </div>
+        <div class="case-lf-results r">
+          <div class="case-lf-result"><span class="case-lf-result-n">150K+</span><span class="case-lf-result-l">Youth &amp; families connected</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">3M+</span><span class="case-lf-result-l">Social impressions</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">47</span><span class="case-lf-result-l">Print news articles nationally</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">25</span><span class="case-lf-result-l">Landmarks lit in BGC green</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section class="sec" id="experience">
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <span class="sec-label">Experience</span>
+    <div class="sec-rule"></div>
+  </div>
+  <div>
+    <div class="tl-row r">
+      <div class="tl-period">2022 – Present</div>
+      <div>
+        <p class="tl-org">Sanofi Canada</p>
+        <p class="tl-role">Strategic Communications Lead</p>
+        <p class="tl-desc">Owned editorial standards across 17 business units during a large-scale operating model transformation. Led a 35-member cross-functional team. 24 plain language learning modules spanning presentations, video explainers, and FAQs. 83,000 employees reached globally across pharma and R&amp;D operations.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">2020 – 2022</div>
+      <div>
+        <p class="tl-org">BGC Canada</p>
+        <p class="tl-role">Content &amp; Editorial Lead</p>
+        <p class="tl-desc">Governed a 250-page bilingual mental health report (AODA and CP standards). Led Unshareable Stories campaign to 30M+ views. Wrote and directed national TVC scripts, social campaigns, OOH messaging, and thought leadership. Produced annual reports, federal pre-budget submissions, and advocacy content for 5,000 member clubs nationwide.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">2018 – 2020</div>
+      <div>
+        <p class="tl-org">Visual Capitalist</p>
+        <p class="tl-role">Data Journalist &amp; Editorial Producer</p>
+        <p class="tl-desc">Translated complex financial, economic, scientific, and environmental data into accessible editorial for a global professional audience. Led end-to-end production of a 60-page ESG/decarbonization report reaching 2.3M viewers. Published across business, technology, science, and public policy verticals.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">2017 – 2019</div>
+      <div>
+        <p class="tl-org">CareFoundry Healthworks</p>
+        <p class="tl-role">Healthcare Content Strategist</p>
+        <p class="tl-desc">Produced 38 plain language narratives and evidence-based resources for a regulated healthcare innovation platform. Developed the full editorial framework and script pipeline for a medical education podcast. Built and wrote the full company website.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">2016 – 2018</div>
+      <div>
+        <p class="tl-org">The Turn Lab (Agency)</p>
+        <p class="tl-role">Copywriter</p>
+        <p class="tl-desc">Produced 300+ assets across Mattamy Homes' national portfolio — corporate website, community pages, design studio, social campaigns, and sales collateral. Supported $4.45B company milestone and 21.4% YoY revenue growth.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">2015 – 2016</div>
+      <div>
+        <p class="tl-org">Sidepart</p>
+        <p class="tl-role">Financial Copywriter</p>
+        <p class="tl-desc">Produced plain language financial content for fintech and mortgage clients. Translated compliance-driven products into accessible narratives for everyday Canadian audiences. Partnered with financial SMEs on thought leadership and market commentary.</p>
+      </div>
+    </div>
+    <div class="tl-row r">
+      <div class="tl-period">Education</div>
+      <div>
+        <p class="tl-org">Grady College of Journalism &amp; Mass Communication</p>
+        <p class="tl-role">Master of Arts in Journalism</p>
+        <p class="tl-desc">B.E. Computer Engineering, Bharati Vidyapeeth College of Engineering. Nine years applying both disciplines across pharma, nonprofit, healthcare, fintech, and real estate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA KIT -->
+<section class="kit" id="mediakit">
+  <div class="r">
+    <span class="kit-label">Executive Media Kit</span>
+    <h2 class="kit-title">The full picture, in one document.</h2>
+    <p class="kit-desc">A curated snapshot of nine years across sectors and formats. Business &amp; finance, editorial governance, healthcare, campaigns, and long-form reports. The format always changes. The standard does not.</p>
+    <div class="kit-btns">
+      <a href="anshool-deshmukh-media-kit.pdf" target="_blank" class="kit-btn kit-btn-primary">View Full Kit ↗</a>
+      <a href="anshool-deshmukh-media-kit.pdf" download="anshool-deshmukh-media-kit.pdf" class="kit-btn kit-btn-secondary">Download PDF ↓</a>
+    </div>
+  </div>
+  <div class="kit-embed r d1">
+    <iframe src="anshool-deshmukh-media-kit.pdf#toolbar=0&navpanes=0" title="Anshool Deshmukh Executive Media Kit"></iframe>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="r">
+    <h2 class="contact-headline">Building something that matters and needs someone who can communicate it?</h2>
+    <p class="contact-desc">Complexity isn't a problem. It's where the work gets interesting. The harder a system is to explain, the more it matters that someone explains it well.</p>
+  </div>
+  <div class="r d1">
+    <ul class="contact-list">
+      <li class="contact-item"><span class="contact-key">Email</span><span class="contact-val">anshool7deshmukh&#64;gmail.com</span></li>
+      <li class="contact-item"><span class="contact-key">Phone</span><span class="contact-val">+1 (647) 655-0747</span></li>
+      <li class="contact-item"><span class="contact-key">Location</span><span class="contact-val">Toronto, ON</span></li>
+      <li class="contact-item"><span class="contact-key">LinkedIn</span><span class="contact-val"><a href="https://www.linkedin.com/in/anshooldeshmukh" target="_blank">linkedin.com/in/anshooldeshmukh ↗</a></span></li>
+      <li class="contact-item"><span class="contact-key">Availability</span><span class="contact-val">Open to full-time roles · Toronto &amp; Remote</span></li>
+      <li class="contact-item"><span class="contact-key">Media Kit</span><span class="contact-val"><a href="anshool-deshmukh-media-kit.pdf" target="_blank">View / Download ↗</a></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+</main>
+<footer>
+  <p class="footer-l">© 2026 Anshool Deshmukh · Toronto, ON</p>
+  <p class="footer-r">"The powerful play goes on, and you may contribute a verse." — Walt Whitman</p>
+</footer>
+
+<script>
+// ── REVEAL ON SCROLL ──
+document.body.classList.add('js');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// ── STAT COUNTERS ──
+function runCounter(el) {
+  const target = parseFloat(el.dataset.count);
+  const suffix = el.dataset.suffix || '';
+  const isDecimal = el.dataset.count.includes('.');
+  const dur = 1800;
+  const t0 = performance.now();
+  (function tick(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    const v = target * ease;
+    el.textContent = (isDecimal ? v.toFixed(1) : Math.floor(v)) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = (isDecimal ? target.toFixed(1) : String(target)) + suffix;
+  })(t0);
+}
+const cObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { runCounter(e.target); cObs.unobserve(e.target); }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('[data-count]').forEach(el => cObs.observe(el));
+
+// ── ACCORDION ──
+function toggleSector(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', String(!isOpen));
+  body.classList.toggle('open', !isOpen);
+}
+
+// ── LENIS SMOOTH SCROLL ──
+if (typeof Lenis !== 'undefined') {
+  const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+  (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
+}
+</script>
+</body>
+</html>
