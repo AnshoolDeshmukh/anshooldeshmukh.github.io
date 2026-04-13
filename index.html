@@ -1145,6 +1145,11 @@ footer {
   padding: 0.45rem 1rem;
   text-decoration: none;
   transition: border-color 0.2s, color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 .case-lf-link:hover { border-color: var(--blue); color: var(--blue); }
 .case-lf-results {
@@ -1397,6 +1402,90 @@ button:focus-visible {
   min-height: 44px;
 }
 
+/* ── TRIDENT FRAMEWORK ── */
+.trident-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule-strong);
+  margin: 1.5rem 0;
+}
+.trident-pillar {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--rule-strong);
+}
+.trident-pillar:last-child { border-right: none; }
+.trident-pillar-num {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.trident-pillar-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--fg);
+  margin-bottom: 1rem;
+  line-height: 1.35;
+}
+.trident-pillar-items {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+}
+.trident-pillar-items li {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--fg3);
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+}
+.trident-pillar-items li:last-child { border-bottom: none; }
+.trident-premise {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg3);
+  line-height: 1.7;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-top: none;
+  background: var(--bg2);
+  margin-bottom: 1.5rem;
+}
+
+/* ── AVAILABLE ON REQUEST ── */
+.avail-request {
+  background: var(--bg2);
+  border: 1px solid var(--rule-strong);
+  padding: 1.25rem;
+  margin-top: 2rem;
+}
+.avail-request-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.avail-request-item {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg3);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--rule);
+  line-height: 1.5;
+}
+.avail-request-item:last-child { border-bottom: none; }
+  
 </style>
 <meta name="robots" content="index, follow"/>
 <meta name="author" content="Anshool Deshmukh"/>
@@ -1738,8 +1827,172 @@ button:focus-visible {
     </div>
     <p style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--fg3);max-width:580px;">The work that moves people is the work that trusts them. Three case studies. Three unique stories. Three different approaches. The same editorial standard throughout.</p>
   </div>
+<!-- CASE 01 -->
+  <div class="case-lf r">
+    <div class="case-lf-hero">
+      <div>
+        <span class="case-lf-num">Case Study 01</span>
+        <h2 class="case-lf-title">The North Star:<br><em>Digital R&amp;D Transformation</em></h2>
+      </div>
+      <div class="case-lf-meta">
+        <p class="case-lf-client">Sanofi Canada</p>
+        <p class="case-lf-role">Strategic Communications Lead<br>Change Communications<br>SharePoint Architecture<br>Editorial Governance<br>Learning Design · AI Integration</p>
+      </div>
+    </div>
 
-  <!-- CASE 01 -->
+    <div class="excerpt r" style="margin:0;border-top:none;">
+      <div class="excerpt-label">The Mandate<br>Sanofi</div>
+      <div>
+        <p class="excerpt-text">"The technology decisions had been made. The platforms were being built. What wasn't built yet was the human infrastructure: the shared language, the communication architecture, and the cultural framework that would determine whether 83,000 global employees actually came with them or got left behind."</p>
+        <p class="excerpt-source">Strategic Communications · Change Management · SharePoint · AI Integration · Enterprise Learning · 83,000 Employees</p>
+      </div>
+    </div>
+
+    <div class="case-lf-body">
+      <div class="case-lf-sidebar" style="padding-top:3rem;">
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Client</span>
+          <p class="case-lf-sidebar-val">Sanofi Canada</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Role</span>
+          <p class="case-lf-sidebar-val">Strategic Communications Lead</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Deliverables</span>
+          <p class="case-lf-sidebar-val">SharePoint Intranet<br>Content Roadmap 2025<br>24 Learning Modules<br>Change Comms Framework<br>Transformation Toolkit<br>Enterprise Taxonomy<br>OKR Measurement System<br>AI-Integrated Comms Model<br>Governance Advisory</p>
+        </div>
+        <div class="case-lf-sidebar-item">
+          <span class="case-lf-sidebar-label">Scale</span>
+          <p class="case-lf-sidebar-val">83,000 Employees<br>17 Business Units<br>70+ Web Pages Built<br>Global Scope</p>
+        </div>
+        <div class="avail-request">
+          <span class="avail-request-label">Available on Request</span>
+          <div class="avail-request-item">Content Development &amp; Communications Roadmap 2025</div>
+          <div class="avail-request-item">SharePoint Information Architecture</div>
+          <div class="avail-request-item">Transformation Management Toolkit</div>
+          <div class="avail-request-item">Enterprise Taxonomy &amp; Definitions Repository</div>
+          <div class="avail-request-item">Plain Language Learning Module Samples</div>
+        </div>
+      </div>
+
+      <div class="case-lf-content">
+
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Brief</span>
+          <p class="case-lf-p">Sanofi's Digital R&amp;D division was mid-transformation. The operating model was shifting from project-based to product-oriented. Agile ways of working were being introduced across 17 business units. Platforms were being built and systems were being redesigned at speed.</p>
+          <p class="case-lf-p">But the hardest part of any transformation is never the technology. It is the people. The question was not whether the organization could build better tools. It was whether 83,000 global employees across pharma and R&amp;D operations would understand what was changing, why it was changing, and what it meant for them specifically. In plain language, without jargon, without leaving anyone behind.</p>
+          <p class="case-lf-p">The brief was deceptively large: design and build the entire communication and learning infrastructure that would carry this transformation. Not a campaign. Not a series of announcements. A system. One that could scale, adapt, and outlast the transformation program itself.</p>
+        </div>
+
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Idea: The Trident Model</span>
+          <p class="case-lf-p">A single communications strategy could not answer all of it. The transformation touched too many audiences, too many workstreams, and too many simultaneous needs for a single-channel approach to work. The answer was a three-pronged model built and executed simultaneously across three axes.</p>
+          <div class="trident-grid">
+            <div class="trident-pillar">
+              <span class="trident-pillar-num">Prong 01</span>
+              <div class="trident-pillar-title">Change Management &amp; Process</div>
+              <ul class="trident-pillar-items">
+                <li>Enterprise Operating Model Alignment</li>
+                <li>Transformation Management Toolkit</li>
+                <li>Governance &amp; Interaction Model</li>
+                <li>Role Specificity &amp; Context Setting</li>
+                <li>Enterprise Taxonomy &amp; Definitions</li>
+                <li>Platform &amp; Product Simplification</li>
+              </ul>
+            </div>
+            <div class="trident-pillar">
+              <span class="trident-pillar-num">Prong 02</span>
+              <div class="trident-pillar-title">Internal Communication Disruption</div>
+              <ul class="trident-pillar-items">
+                <li>SharePoint Intranet Architecture</li>
+                <li>24 Plain Language Learning Modules</li>
+                <li>Explainer Series Production</li>
+                <li>TED x Sanofi Video Townhalls</li>
+                <li>Viva Engage Social Strategy</li>
+                <li>Sanofi U Learning Platform Build</li>
+              </ul>
+            </div>
+            <div class="trident-pillar">
+              <span class="trident-pillar-num">Prong 03</span>
+              <div class="trident-pillar-title">External Brand Identity</div>
+              <ul class="trident-pillar-items">
+                <li>Digital R&amp;D Brand Architecture</li>
+                <li>Taglines &amp; Short-Form Content</li>
+                <li>External Social Media Presence</li>
+                <li>Industry Thought Leadership</li>
+                <li>AI-First Pharma Positioning</li>
+                <li>Growth &amp; Innovation Narrative</li>
+              </ul>
+            </div>
+          </div>
+          <div class="trident-premise">The Trident's premise: you cannot change how people work without first changing how they think. You cannot change how they think without first changing how they communicate. All three prongs had to move together or the transformation would stall at the seams between them.</div>
+        </div>
+
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">The Execution</span>
+          <p class="case-lf-p">Eight workstreams running simultaneously, each with its own deliverable set, audience, and success measure. The challenge was not any one of them in isolation. It was making them coherent as a system.</p>
+
+          <div class="case-lf-execution">
+            <span class="case-lf-execution-label">Workstream 01 &middot; SharePoint Intranet: From Blank Slate to Knowledge Hub</span>
+            <p>Built Sanofi's Digital R&amp;D SharePoint intranet from nothing. Designed the full information architecture before a single page was written: navigation taxonomy, site hierarchy, content governance standards, and a structural logic that could scale as the organization grew. Developed 70+ web pages of content into a unified knowledge hub for 83,000 global employees. Served as Sanofi's SharePoint subject matter expert throughout, consulting with business units, IT, and senior leaders on platform best practices and enhancements.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 02 &middot; Content Development and Communications Roadmap 2025</span>
+            <p>Built the full strategic communications plan from the ground up. The roadmap addressed the critical questions of the transformation: How does an organization move from project-oriented to product-oriented? How do you break down silos and establish two-way communication channels? How do you define and simplify complex concepts so people can not only understand them but embrace them? The roadmap became the operating document for all communications decisions throughout the program.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 03 &middot; 24 Plain Language Learning Modules</span>
+            <p>Translated the entire operating model into 24 audience-specific plain language learning modules spanning presentations, video explainers, and FAQ documents. Each module answered the same question from a different vantage point: what does this change mean for the person in front of it, in their language, on their terms. Partnered with senior leaders to define what the changes meant at the employee level before writing a word of content.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 04 &middot; Enterprise Taxonomy and Definitions Repository</span>
+            <p>Created an enterprise-wide taxonomy covering every term, role, platform, and process used in daily communication that employees might not fully understand. Built as a living wiki on the SharePoint site, searchable and continuously updated. This was one of the least visible deliverables and one of the most important. It created a shared language across 17 business units that had been operating in different vocabularies for years.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 05 &middot; AI Integration into the Communications Operating Model</span>
+            <p>Modernized Sanofi's communications operating model by integrating AI platforms into the production and distribution workflow. Scaled omni-channel social and email campaigns to ensure brand consistency across all communications touchpoints. The result was a 30% reduction in delivery times and a communications function that could produce more, faster, without sacrificing editorial quality or brand standards.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 06 &middot; Change Communications Advisory and Executive Alignment</span>
+            <p>Partnered with senior leaders across Sanofi to translate complex digital transformation priorities into clear, actionable communications. Developed messaging, materials, and delivery plans that drove digital adoption across 17 business units. Served as communications advisor on digital governance initiatives ranging from 5 to 20 million dollars, monitoring program health, escalating risks, and keeping executive messaging aligned throughout the program's growth.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 07 &middot; OKR Tracking and Content Performance Measurement</span>
+            <p>Defined and tracked OKRs and content performance metrics using data analytics and feedback loops. Built a continuous measurement framework that connected communications outputs directly to transformation outcomes, not just reach and open rates, but actual change adoption indicators. Used the data to continuously refine messaging and make the case internally for communications as a strategic function, not a support function.</p>
+          </div>
+
+          <div class="case-lf-execution" style="margin-top:0.75rem;">
+            <span class="case-lf-execution-label">Workstream 08 &middot; Role Specificity and Organizational Context Framework</span>
+            <p>Brought specificity and clarity to every role across Sanofi's Digital R&amp;D organization. Built an assembly-line framework of accountability: what do I do, what do the people before me do, what are the people ahead of me doing. The goal was to move beyond people knowing only their section of a project and create a continuity of shared knowledge across the entire program. Pulled directly from the taxonomy work to make definitions and context immediately accessible.</p>
+          </div>
+        </div>
+
+        <div class="case-lf-section r">
+          <span class="case-lf-section-label">Why It Worked</span>
+          <p class="case-lf-p">Most transformation communications programs fail because they treat communications as the last step. The announcement that comes after the decisions have already been made. This one was built into the architecture from the beginning. The SharePoint site, the taxonomy, the learning modules, the governance advisory. All of it was designed to outlast the transformation program itself and become the operating infrastructure of the organization going forward.</p>
+          <p class="case-lf-p">The plain language discipline was the through-line. Every deliverable, regardless of format or audience, was held to the same standard: could the person who needed to act on this actually understand it and know what to do next? That standard scaled from a 24-module learning system for 83,000 employees down to a single FAQ entry in a wiki. It held everywhere because it was applied at the architecture level, not the copy level.</p>
+          <p class="case-lf-p">The Trident model also meant that no single communications failure could bring down the system. When one channel was slow, another carried the load. When one audience was not engaging, the feedback loops surfaced it fast enough to respond. The redundancy was intentional. Transformation programs that depend on a single channel or a single message almost always miss someone. This one was built not to.</p>
+        </div>
+
+        <div class="case-lf-results r">
+          <div class="case-lf-result"><span class="case-lf-result-n">83K</span><span class="case-lf-result-l">Employees reached globally</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">57%</span><span class="case-lf-result-l">Gain in overall change efficiency</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">95%</span><span class="case-lf-result-l">Employee satisfaction rate</span></div>
+          <div class="case-lf-result"><span class="case-lf-result-n">30%</span><span class="case-lf-result-l">Reduction in delivery times</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <!-- CASE 02 -->
   <div class="case-lf r">
     <div class="case-lf-hero">
       <div>
@@ -1839,7 +2092,7 @@ button:focus-visible {
     </div>
   </div>
 
-  <!-- CASE 02 -->
+  <!-- CASE 03 -->
   <div class="case-lf r">
     <div class="case-lf-hero">
       <div>
@@ -1918,7 +2171,7 @@ button:focus-visible {
     </div>
   </div>
 
-  <!-- CASE 03 -->
+  <!-- CASE 04 -->
   <div class="case-lf r">
     <div class="case-lf-hero">
       <div>
