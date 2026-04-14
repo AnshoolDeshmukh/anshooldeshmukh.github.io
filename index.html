@@ -946,8 +946,89 @@ footer {
   footer { flex-direction: column; gap: 0.75rem; text-align: center; }
   .sector-desc, .piece-group-label, .piece-row { padding-left: 0; }
   .sector-desc { padding-left: 0; }
+
+  .hero-meta { flex-direction: column; align-items: center; gap: 0; }
+  .hero-meta-item { border-right: none; margin-right: 0; padding: 0.6rem 1rem; border-bottom: 1px solid var(--rule); width: 100%; text-align: center; font-size: 13px; }
+  .hero-meta-item:last-child { border-bottom: none; }
+  .trident-grid { grid-template-columns: 1fr; }
+  .trident-pillar { border-right: none; border-bottom: 1px solid var(--rule-strong); }
+  .trident-pillar:last-child { border-bottom: none; }
+  .kit-embed iframe { height: 320px; }
+  .avail-request { margin-top: 1rem; }
+  .stat:nth-child(4) { border-top: 1px solid var(--rule); }
+  .stat:nth-child(5) { border-top: 1px solid var(--rule); border-right: none; }
 }
 
+/* ── PHONE BREAKPOINT (480px) ── */
+@media (max-width: 480px) {
+  /* Hero */
+  .hero { padding: 8rem 1.25rem 2rem; }
+  .hero-name { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .hero-label { font-size: 10px; letter-spacing: 0.1em; }
+
+  /* Hero meta — stacked list on phone */
+  .hero-meta-item { font-size: 12px; padding: 0.55rem 1rem; }
+
+  /* Philosophy */
+  .philosophy { padding: 2rem 1.25rem; }
+  .philosophy-quote { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+
+  /* Stats — 2 column on phone */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-right: 1px solid var(--rule); border-top: 1px solid var(--rule); }
+  .stat:nth-child(4) { border-top: 1px solid var(--rule); border-right: none; }
+  .stat:nth-child(5) { grid-column: 1 / -1; border-top: 1px solid var(--rule); border-right: none; text-align: center; }
+
+  /* Logos */
+  .logos-band { padding: 1.5rem 1.25rem; }
+  .logos-label { margin-right: 0; margin-bottom: 0.75rem; }
+
+  /* Sections */
+  .sec { padding: 2.5rem 1.25rem; }
+  .about-grid { gap: 2rem; }
+
+  /* Work sector */
+  .sector-toggle { padding: 1.5rem 0; }
+  .sector-toggle-name { font-size: clamp(1.1rem, 5vw, 1.4rem); }
+  .sector-toggle-meta { display: none; }
+
+  /* Case studies */
+  .case-lf-hero { padding: 2rem 1.25rem; }
+  .case-lf-title { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .case-lf-content { padding: 2rem 1.25rem; }
+  .case-lf-sidebar { padding: 1.5rem 1.25rem; }
+  .case-lf-results { grid-template-columns: repeat(2, 1fr); }
+  .case-lf-result { padding: 1.25rem 1rem; }
+  .case-lf-result-n { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .case-lf-links { flex-direction: column; }
+  .case-lf-link { white-space: normal; }
+
+  /* Trident */
+  .trident-grid { margin: 1rem 0; }
+  .trident-pillar { padding: 1.25rem 1rem; }
+
+  /* Experience */
+  .tl-org { font-size: 1.1rem; }
+  .tl-desc { font-size: 13px; }
+
+  /* Kit */
+  .kit { padding: 2.5rem 1.25rem; }
+  .kit-embed iframe { height: 260px; }
+
+  /* Contact */
+  .contact { padding: 2.5rem 1.25rem; }
+  .contact-item { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.9rem 0; }
+  .contact-val { text-align: left; font-size: 13px; }
+
+  /* Footer */
+  footer { padding: 1.5rem 1.25rem; }
+  .footer-r { font-size: 12px; text-align: center; }
+
+  /* Excerpt blocks */
+  .excerpt { padding: 2rem 1.25rem; gap: 1rem; }
+  .excerpt-text { font-size: clamp(1.1rem, 4.5vw, 1.5rem); }
+}
+  
 /* ── LOGOS BAND ── */
 .logos-band {
   padding: 2rem 3rem;
@@ -1485,6 +1566,120 @@ button:focus-visible {
   line-height: 1.5;
 }
 .avail-request-item:last-child { border-bottom: none; }
+
+/* ── MOBILE NAV HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--fg);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+@media (max-width: 960px) {
+  .nav-hamburger { display: flex; }
+  .nav-kit { display: none; }
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule-strong);
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 0;
+    z-index: 150;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex !important;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+  }
+  .nav-links li { border-bottom: 1px solid var(--rule); }
+  .nav-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 14px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ── MOBILE NAV HAMBURGER ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--fg);
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+@media (max-width: 960px) {
+  .nav-hamburger { display: flex; }
+  .nav-kit { display: none; }
+  .nav-links {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule-strong);
+    flex-direction: column;
+    padding: 5rem 2rem 2rem;
+    gap: 0;
+    z-index: 150;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex !important;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+  }
+  .nav-links li { border-bottom: 1px solid var(--rule); }
+  .nav-links a {
+    display: block;
+    padding: 1rem 0;
+    font-size: 14px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
   
 </style>
 <meta name="robots" content="index, follow"/>
@@ -1535,7 +1730,7 @@ button:focus-visible {
 <a href="#main-content" class="skip-nav">Skip to main content</a>
 <nav>
   <a href="#top" class="nav-name">Gattuscope</a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#cases">Case Studies</a></li>
@@ -1543,7 +1738,12 @@ button:focus-visible {
     <li><a href="#mediakit">Media Kit</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#mediakit" class="nav-kit">Media Kit ↓</a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="#mediakit" class="nav-kit">Media Kit ↓</a>
+    <button class="nav-hamburger" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -2388,6 +2588,25 @@ if (typeof Lenis !== 'undefined') {
   const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
   (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })(0);
 }
+
+// ── MOBILE NAV ──
+const navToggle = document.getElementById('navToggle');
+const navLinks  = document.getElementById('navLinks');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation menu');
+    });
+  });
+}
+
 </script>
 </body>
 </html>
