@@ -969,6 +969,51 @@ footer {
   /* Hero meta — stacked list on phone */
   .hero-meta-item { font-size: 12px; padding: 0.55rem 1rem; }
 
+  /* Hide vertical hero tag — collides with content on mobile */
+  .hero-tag { display: none; }
+
+  /* Hero needs more top breathing room */
+  .hero { padding: 6rem 1.25rem 2rem; min-height: auto; }
+  .hero-label { font-size: 9px; letter-spacing: 0.1em; margin-bottom: 1rem; }
+  .hero-name { margin-bottom: 2rem; }
+
+  /* Nav — tighten padding so hamburger has room */
+  nav { padding: 1rem 1.25rem; }
+  .nav-name { font-size: 15px; }
+
+  /* Logos marquee — hide label on phone, let marquee breathe */
+  .logos-label { display: none; }
+  .logos-marquee-wrap { width: 100%; }
+
+  /* Stats cells — tighter padding on phone */
+  .stat { padding: 1.25rem 1rem; }
+  .stat-n { font-size: clamp(1.8rem, 6vw, 2.4rem); }
+  .stat-l { font-size: 10px; letter-spacing: 0.06em; }
+
+  /* About aside — full width, smaller text */
+  .about-aside { width: 100%; }
+  .aside-val { font-size: 12px; }
+
+  /* Excerpt — reduce padding further */
+  .excerpt { padding: 1.5rem 1.25rem; }
+  .excerpt-label { font-size: 10px; }
+
+  /* Sector toggle — prevent meta wrapping under arrow */
+  .sector-toggle-left { gap: 0.75rem; }
+
+  /* Case result grid on phone — ensure 2 col */
+  .case-lf-results { grid-template-columns: repeat(2, 1fr); }
+  .case-lf-result:nth-child(2) { border-right: none; }
+  .case-lf-result:nth-child(3) { border-top: 1px solid var(--rule); }
+
+  /* Trident on phone — single column already but reduce padding */
+  .trident-pillar { padding: 1rem; }
+  .trident-pillar-items li { font-size: 10px; }
+
+  /* Footer — stack everything vertically */
+  footer { flex-direction: column; gap: 0.5rem; padding: 1.25rem; text-align: center; }
+  .footer-top { width: 100%; text-align: center; }
+
   /* Philosophy */
   .philosophy { padding: 2rem 1.25rem; }
   .philosophy-quote { font-size: clamp(1.2rem, 5vw, 1.6rem); }
@@ -1260,6 +1305,7 @@ footer {
   letter-spacing: 0.08em;
 }
 @media (max-width: 960px) {
+  .hero-tag { font-size: 9px; right: 1.5rem; }
   .case-lf-hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
   .case-lf-meta { text-align: left; }
   .case-lf-body { grid-template-columns: 1fr; }
@@ -1603,7 +1649,7 @@ button:focus-visible {
     background: var(--bg);
     border-bottom: 1px solid var(--rule-strong);
     flex-direction: column;
-    padding: 5rem 2rem 2rem;
+    padding: 4rem 1.5rem 1.5rem;
     gap: 0;
     z-index: 150;
     transform: translateY(-100%);
